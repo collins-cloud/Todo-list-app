@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Todo list</title>
+</head>
+
+<body>
+
+
+
+<div class="container">
+  <h1>Todo list</h1>
+  
+ <div class="InputArea">
+ <input class="InputBox" type="text">
+ <button class="addtask">
+  <img src="Add.jpg">
+  </button>
+
+ <p class="tooltip">Add task</p>
+ </div>
+
+<div class="Tasklist">
+<div class="tasks">
+<p class="TaskText"></p>
+<img >
+</div>
+</div>
+
+</div>
+  
+  <script>
+  const InputBox =document.querySelector(".InputBox");
+  
+  const AddTask = document.querySelector(".addtask");
+  
+  const Delete= document.querySelector(".delete");
+  
+  const Tasklist= document.querySelector(".Tasklist");
+  
+  function saveData(){
+  localStorage.setItem('data', Tasklist.innerHTML);
+  };
+  
+  function showTask(){
+   Tasklist.innerHTML 
+  };
+  
+  AddTask.addEventListener("click",()=>{
+    if (InputBox.value.trim()==='')return
+    
+    const TaskText = document.createElement("p");
+    const Tasks = document.createElement("div");
+    
+    const Delete= document.createElement("img");
+    
+    TaskText.className = "TaskText";
+    Tasks.className = "tasks";
+    Delete.className = "delete";
+    
+ TaskText.textContent = InputBox.value;
+  
+  Delete.src = "delete.png";
+  
+    Tasks.appendChild(TaskText);
+    Tasks.appendChild(Delete);
+    Tasklist.appendChild(Tasks);
+    
+    InputBox.value = '';
+    
+    
+    Delete.addEventListener("click", ()=>{
+    Tasks.style.display = "none";
+    saveData();
+  });
+
+TaskText.addEventListener("click", ()=>{
+    Tasks.style.textDecoration = "line-through";
+    saveData();
+  });
+  saveData();
+  });
+  
+  function showTask() {
+    Tasklist.innerHTML = localStorage.getItem('data') || '';
+    
+    // Re-attach click events for delete and line-through
+    Tasklist.querySelectorAll('.delete').forEach(del => {
+        del.addEventListener('click', () => {
+            del.parentElement.style.display = 'none';
+            saveData();
+        });
+    });
+
+    Tasklist.querySelectorAll('.TaskText').forEach(task => {
+        task.addEventListener('click', () => {
+            task.parentElement.style.textDecoration = 'line-through';
+            saveData();
+        });
+    });
+}
+  
+  
+    
+  </script>
+  
+  
+</body>
+
+</html>

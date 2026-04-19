@@ -1,0 +1,116 @@
+
+@font-face{
+  font-family:"poppins";
+  src:url('Poppins-Regular.ttf');
+}
+
+*{
+font-family:poppins;
+box-sizing:border-box;
+margin:0;
+}
+
+body{
+background-image:url("Muscle.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+display:flex;
+  align-items:center;
+  justify-content:center;
+height:100vh;
+}
+
+h1{
+color:#FFFFFF;
+text-align:center;
+margin-bottom:30px;
+}
+
+.container{
+  padding-top:30px;
+  padding-bottom:50px;
+  padding-left:20px;
+  padding-right:20px;
+background:#00000075;
+backdrop-filter:blur(7px);
+border-radius:15px;
+border:1px solid #FCFCFC4F;
+}
+
+.InputBox{
+  outline:none;
+  font-size:15px;
+  width:18em;
+  height:40px;
+  border-radius:18px;
+  padding:5px;
+  border:none;
+}
+
+.addtask{
+  border:none;
+  height:35px;
+  width:35px;
+  font-weight:bold;
+  font-size:15px;
+  border-radius:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-left:5px;
+  transition:0.5s;
+  cursor:pointer;
+}
+
+.addtask:hover{
+  height:38px;
+  width:38px;
+}
+
+.addtask Img{
+  width:100%;
+  
+}
+
+.InputArea{
+  display:flex;
+}
+
+.tooltip{
+  transition:1s;
+  opacity:0;
+  position:fixed;
+  left:265px;
+  top:150px;
+  background-color:#FFFFFF;
+  font-weight:bold;
+  border-radius:2px;
+  font-size:10px;
+  padding:5px;
+  width:80px;
+  text-align:center;
+}
+
+.addtask:hover + .tooltip{
+  opacity:0.5;
+}
+
+.tasks{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:20px;
+  width:100%;
+}
+
+.delete{
+  width:25px;
+  height:25px;
+}
+
+.TaskText{
+  color:white;
+  margin-left:5px;
+  width:100%;
+}
