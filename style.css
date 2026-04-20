@@ -107,6 +107,7 @@ border:1px solid #FCFCFC4F;
 .delete{
   width:25px;
   height:25px;
+  cursor:pointer;
 }
 
 .TaskText{
